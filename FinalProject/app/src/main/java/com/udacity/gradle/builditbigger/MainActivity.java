@@ -1,11 +1,16 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.MobileAds;
+import com.udacity.jokelib.Jokes;
+import com.udacity.jokey.JokeyActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+
     }
 
 
@@ -39,8 +47,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+
+    public void launchJokeActivity(View view) {
+        Intent intent = new Intent(this, JokeyActivity.class);
+        Jokes jokes = new Jokes();
+        intent.putExtra(JokeyActivity.JOKE_KEY, jokes.getJoke());
+
+        startActivity(intent);
+
     }
 
 
