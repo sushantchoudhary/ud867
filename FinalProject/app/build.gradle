@@ -39,7 +39,44 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        free {
+            dimension "version"
+            applicationId "com.udacity.gradle.builditbigger.free"
+            versionNameSuffix "-free"
+
+        }
+
+        paid {
+            dimension "version"
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            versionNameSuffix "-paid"
+
+
+        }
+    }
 }
+
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.android.support'
+                    && !details.requested.name.contains('support-v4') ) {
+                details.useVersion "28.0.0"
+            }
+        }
+    }
+}
+
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
