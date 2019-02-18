@@ -33,13 +33,6 @@ public class MainActivityFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 
         if(BuildConfig.FLAVOR.equals("free")) {
-//            AdView mAdView = (AdView) root.findViewById(R.id.adView);
-//
-//            AdRequest adRequest = new AdRequest.Builder()
-//                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-//                    .build();
-//            mAdView.loadAd(adRequest);
-
             MobileAds.initialize(this.getActivity(),
                     "ca-app-pub-3940256099942544~3347511713");
 
