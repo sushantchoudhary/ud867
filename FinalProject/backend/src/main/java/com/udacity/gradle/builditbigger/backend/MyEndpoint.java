@@ -30,15 +30,5 @@ public class MyEndpoint {
         return response;
     }
 
-//    @ApiMethod(name = "getJokes", httpMethod = GET )
-//    public MyBean getJokes() throws IOException {
-//        Jokes jokes = new Jokes();
-//
-//        MyBean response = new MyBean();
-//
-//        response.getData();
-//        response.getData(jokes.getJoke());
-//
-//    }
 
 }

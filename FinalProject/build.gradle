@@ -13,9 +13,19 @@ buildscript {
     }
 }
 
+// Build task to start local GCE server, runs UI tests and stops server
+task androidTest(type: GradleBuild) {
+    description = "Build task to start local GCE server, runs UI tests and stops server"
+    tasks =  ['appengineStart','connectedPaidDebugAndroidTest', 'appengineStop']
+}
+
+
 allprojects {
     repositories {
         jcenter()
         google()
     }
+
+
+
 }

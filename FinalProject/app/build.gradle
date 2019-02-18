@@ -79,13 +79,6 @@ configurations.all {
     resolutionStrategy.force 'com.android.support:support-v4:27.1.1'
 }
 
-tasks androidtest {
-    dependsOn
-    runLast()
-}
-
-
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     endpointsServer project(path: ':backend', configuration: 'endpoints')
